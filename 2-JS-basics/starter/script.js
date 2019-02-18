@@ -346,29 +346,31 @@ console.log(isDesigner);
 /**********************************************************
  * Coding challenge 2
  */
+
+/*
 var bill = [124, 48, 268];
 var tip = [];
 var totalPaid = [];
 
 function tipCalculator(bill) {
-    var percentage;
+   var percentage;
 
-    if (bill < 50) {
-        percentage = 0.2
-        tip.push((bill * percentage).toFixed(2));
-        totalPaid.push(bill + (bill * percentage));
+   if (bill < 50) {
+       percentage = 0.2
+       tip.push((bill * percentage).toFixed(2));
+       totalPaid.push(bill + (bill * percentage));
 
-    } else if (bill > 50 && bill <= 200) {
-        percentage = 0.15;
-        tip.push((bill * percentage).toFixed(2));
-        totalPaid.push(bill + (bill * percentage));
+   } else if (bill > 50 && bill <= 200) {
+       percentage = 0.15;
+       tip.push((bill * percentage).toFixed(2));
+       totalPaid.push(bill + (bill * percentage));
 
-    } else if (bill > 200) {
-        percentage = 0.10;
-        tip.push(bill * percentage);
-        totalPaid.push(bill + (bill * percentage));
-    }
-    return percentage * bill
+   } else if (bill > 200) {
+       percentage = 0.10;
+       tip.push(bill * percentage);
+       totalPaid.push(bill + (bill * percentage));
+   }
+   return percentage * bill
 }
 
 console.log(tipCalculator(124));
@@ -380,3 +382,261 @@ console.log(tip);
 console.log(totalPaid);
 
 //PASS
+*/
+
+/*************************************************************
+ * Objects
+ */
+
+/*
+//object literal
+var mellisa = {
+   firstName: "Mellisa",
+   lastName: "Madrid",
+   birthYear: 1990,
+   family: [
+       "Danyel",
+       "Floss",
+       "Ann",
+       "Ben"
+   ],
+   job: "student",
+   isMarried: false
+};
+console.log(mellisa.firstName);
+console.log(mellisa["lastName"]);
+var x = "birthYear";
+console.log(mellisa[x]);
+
+// object mutation
+mellisa.job = "designer";
+mellisa["isMarried"] = true;
+console.log(mellisa);
+
+// new object syntax
+var jane = new Object();
+jane.name = "Jane";
+jane.birthYear = 1989;
+jane["lastName"] = "Smith";
+
+console.log(jane);
+*/
+
+/*****************************************************
+ * Methods
+ */
+/*
+var mellisa = {
+    firstName: "Mellisa",
+    lastName: "Madrid",
+    birthYear: 1990,
+    family: [
+        "Danyel",
+        "Floss",
+        "Ann",
+        "Ben"
+    ],
+    job: "student",
+    isMarried: false,
+
+
+    calcAge: function () {
+        this.age = 2019 - this.birthYear
+    }
+};
+
+mellisa.calcAge();
+console.log(mellisa);
+*/
+
+/*****************************************************************
+ * Coding challenge 4
+ */
+/*
+var mark = {
+    firstName: "Mark",
+    lastName: "Smith",
+    mass: 78,
+    height: 1.69,
+
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+    }
+}
+
+var john = {
+    firstName: "John",
+    lastName: "Jake",
+    mass: 92,
+    height: 1.95,
+
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+    }
+}
+
+
+function compareBMI() {
+    if (mark.calcBMI() > john.calcBMI()) {
+        console.log(`${mark.firstName}'s BMI is higher by ${mark.bmi} points`);
+    } else {
+        console.log(`${john.firstName}'s BMI is higher by ${john.bmi}`);
+    }
+}
+compareBMI();
+*/
+
+/*********************************************************************
+ * Loops
+ */
+
+/*
+//For loop
+for (var i = 0; i < 10; i++) {
+   console.log(i);
+}
+
+var mellisa = ["Mellisa", "Madrid", 1990, "student", false, "blue"];
+for (var i = 0; i < mellisa.length; i++) {
+   console.log(mellisa[i]);
+}
+
+//While loop
+var i = 0;
+while (i < mellisa.length) {
+   console.log(mellisa[i]);
+   i++;
+}
+
+
+// continue and break
+var mellisa = ["Mellisa", "Madrid", 1990, "student", false, "blue"];
+
+// if the array is different from a string, skip over it and continue
+for (var i = 0; i < mellisa.length; i++) {
+    if (typeof mellisa[i] !== "string")
+        continue;
+    console.log(mellisa[i]);
+}
+
+// if the array comes across anything other than a string - stop.
+for (var i = 0; i < mellisa.length; i++) {
+    if (typeof mellisa[i] !== "string")
+        break;
+    console.log(mellisa[i]);
+}
+
+for (var i = mellisa.length - 1; i >= 0; i--) {
+    console.log(mellisa[i]);
+}
+
+*/
+
+/*******************************************************************
+ * Coding challenge 5
+ */
+
+
+var johnRestaurantBills = {
+    fullName: "John Smith",
+    bills: [124, 48, 268, 180, 42],
+    tips: [],
+    finalPaid: [],
+
+    tipCalc: function () {
+        var percentage;
+
+        for (var i = 0; i < this.bills.length; i++) {
+
+            if (this.bills[i] < 50) {
+                percentage = 0.2;
+                this.tips.push(this.bills[i] * percentage);
+                this.finalPaid.push(this.bills[i] + (this.bills[i] * percentage));
+            } else if (this.bills[i] > 50 && this.bills[i] < 200) {
+                percentage = 0.15;
+                this.tips.push(this.bills[i] * percentage);
+                this.finalPaid.push(this.bills[i] + (this.bills[i] * percentage));
+            } else if (this.bills[i] > 200) {
+                percentage = 0.10;
+                this.tips.push(this.bills[i] * percentage);
+                this.finalPaid.push(this.bills[i] + (this.bills[i] * percentage));
+            }
+
+        }
+        console.log(this.bills);
+        console.log(this.tips);
+        console.log(this.finalPaid);
+
+    },
+
+}
+johnRestaurantBills.tipCalc();
+
+
+var markRestaurantBills = {
+    fullName: "Mark Popadoppolus",
+    bills: [77, 475, 110, 45],
+    tips: [],
+    finalPaid: [],
+
+    tipCalc: function () {
+        var percentage;
+
+        for (var i = 0; i < this.bills.length; i++) {
+
+            if (this.bills[i] < 100) {
+                percentage = 0.2;
+                this.tips.push(this.bills[i] * percentage);
+                this.finalPaid.push(this.bills[i] + (this.bills[i] * percentage));
+            } else if (this.bills[i] > 100 && this.bills[i] < 300) {
+                percentage = 0.10;
+                this.tips.push(this.bills[i] * percentage);
+                this.finalPaid.push(this.bills[i] + (this.bills[i] * percentage));
+            } else {
+                percentage = 0.25;
+                this.tips.push(this.bills[i] * percentage);
+                this.finalPaid.push(this.bills[i] + (this.bills[i] * percentage));
+            }
+
+        }
+        console.log(this.bills);
+        console.log(this.tips);
+        console.log(this.finalPaid);
+
+    },
+
+}
+markRestaurantBills.tipCalc();
+
+function jAverageTips() {
+    var johnsAverageTips = 0
+    for (var i = 0; i < johnRestaurantBills.tips.length; i++) {
+        johnsAverageTips += johnRestaurantBills.tips[i];
+
+
+    }
+    johnsTotalAverageTip = johnsAverageTips / 5;
+    console.log(johnsTotalAverageTip);
+}
+
+jAverageTips();
+
+function mAverageTips() {
+    var marksAverageTips = 0
+    for (var i = 0; i < markRestaurantBills.tips.length; i++) {
+        marksAverageTips += markRestaurantBills.tips[i];
+
+
+    }
+    marksTotalAverageTip = marksAverageTips / 4;
+    console.log(marksTotalAverageTip);
+}
+mAverageTips();
+
+if (jAverageTips > mAverageTips) {
+    console.log(`${johnRestaurantBills.fullName} family tipped higher by ${johnsAverageTips}`);
+} else {
+    console.log(`${markRestaurantBills.fullName} family tipped higher by  $${marksTotalAverageTip}`);
+}
